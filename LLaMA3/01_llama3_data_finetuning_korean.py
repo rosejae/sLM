@@ -20,19 +20,19 @@ tokenizer = AutoTokenizer.from_pretrained('psymon/KoLlama2-7b')
 
 context_length = 128
 def tokenize(batch):
-  outputs = tokenizer(
-      batch['output'],
-      max_length=context_length,
-      truncation=True,
-      return_overflowing_tokens=True,
-      return_length=True
-  )
+    outputs = tokenizer(
+        batch['output'],
+        max_length=context_length,
+        truncation=True,
+        return_overflowing_tokens=True,
+        return_length=True
+    )
 
-  input_batch=[]
-  for length, input_ids in zip(outputs['length'], outputs['input_ids']):
-    if length==context_length:
-      input_batch.append(input_ids)
-  return {"input_ids": input_batch}
+    input_batch=[]
+    for length, input_ids in zip(outputs['length'], outputs['input_ids']):
+        if length==context_length:
+        input_batch.append(input_ids)
+    return {"input_ids": input_batch}
 
 tokenized_datasets = sampled_dataset.map(tokenize, batched=True, remove_columns=raw_dataset.column_names)
 
