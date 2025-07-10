@@ -1,0 +1,6 @@
+*.parquet
+*.csv
+*.json
+*.jsonl
+*.jsonl.1
+*.png
