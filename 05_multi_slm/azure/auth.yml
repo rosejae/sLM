@@ -1,0 +1,18 @@
+---
+Azure_OpenAI:
+  name:
+  key:
+
+Azure_Embedding:
+  name:
+  key:
+
+AI_Search:
+  name:
+  key:
+  index_name:
+
+Google_Search:
+  engine:
+  news_engine:
+  key:
